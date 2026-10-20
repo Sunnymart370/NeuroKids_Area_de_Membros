@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NeuroKids™: minha área de membros</title>
+<style>
+@font-face{font-family:"Lilita One";src:url("fonts/LilitaOne-Regular.ttf") format("truetype");font-display:swap}
+@font-face{font-family:"Andika";src:url("fonts/Andika-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Andika";src:url("fonts/Andika-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+:root{
+  --roxo:#6C4DD8; --noite:#241A5C; --lavanda:#F1EDFD; --amarelo:#FDD835; --tinta:#2B2A33; --papel:#FBFAFF; --cinza:#6E6B80;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 17px/1.55 "Andika","Trebuchet MS",system-ui,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amarelo);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Lilita One","Arial Rounded MT Bold",system-ui,sans-serif;font-weight:400;line-height:1.1;margin:0}
+
+/* topo */
+.topo{background:var(--noite);color:#fff}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{font-family:"Lilita One",system-ui,sans-serif;font-size:26px;text-decoration:none}
+.topo a.ajuda{font-size:15px;text-decoration:none;border-bottom:2px solid var(--amarelo)}
+
+/* hero */
+.hero{background:var(--roxo);color:#fff;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding-top:54px;padding-bottom:64px}
+.hero h1{font-size:clamp(34px,5.2vw,56px)}
+.hero p.lead{font-size:19px;max-width:34em;margin:18px 0 26px;color:#EEE9FF}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:var(--amarelo);color:var(--tinta);font-weight:700;text-decoration:none;padding:12px 20px;border-radius:999px;border:2px solid var(--amarelo);font-size:16px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.hero .btn.ghost{color:#fff}
+.fatos{margin-top:22px;font-size:15px;color:#DCD3FF}
+.pilha{position:relative;height:420px}
+.pilha img{position:absolute;width:210px;height:auto;border-radius:10px;box-shadow:0 10px 26px rgba(20,10,70,.4);border:3px solid #fff}
+.pilha .p1{left:6%;top:48px;transform:rotate(-13deg)}
+.pilha .p2{left:22%;top:22px;transform:rotate(-6deg)}
+.pilha .p3{left:60%;top:46px;transform:rotate(11deg)}
+.pilha .p4{left:44%;top:24px;transform:rotate(5deg)}
+.pilha .principal{left:27%;top:62px;width:250px;transform:rotate(-1deg);z-index:5}
+
+/* passos */
+.passos{padding:54px 0 14px}
+.passos h2{font-size:30px;margin-bottom:22px}
+.passos ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.passos li{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start}
+.passos .n{width:48px;height:48px;border-radius:50%;background:var(--amarelo);display:grid;place-items:center;font-family:"Lilita One",system-ui,sans-serif;font-size:26px}
+.passos strong{display:block;font-size:18px}
+.passos span.t{color:var(--cinza);font-size:15.5px}
+
+/* lista */
+.secao{padding:44px 0 8px}
+.secao h2{font-size:32px}
+.secao .sub{color:var(--cinza);margin:8px 0 22px;max-width:42em}
+.progresso{display:flex;align-items:center;gap:14px;margin:0 0 26px;font-size:15px}
+.barra{flex:1;max-width:320px;height:12px;background:#E3DCFB;border-radius:99px;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--roxo);border-radius:99px;transition:width .3s}
+.grade{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.item{display:grid;grid-template-columns:124px 1fr;gap:18px;background:#fff;border:2px solid #E7E1FA;border-left:8px solid var(--cor);border-radius:16px 8px 16px 8px;padding:16px}
+.item img{border-radius:6px;border:1px solid #E7E1FA;box-shadow:0 3px 10px rgba(36,26,92,.12)}
+.item .tag{margin:0;font-size:14px;font-weight:700;color:var(--ct)}
+.item h3{font-size:21px;margin:2px 0 6px;color:var(--noite)}
+.item .desc{margin:0 0 6px;font-size:15.5px}
+.item .meta{margin:0 0 12px;font-size:13.5px;color:var(--cinza)}
+.item .acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.item .btn{background:var(--cor);border-color:var(--cor);color:var(--on);font-size:14.5px;padding:9px 15px}
+.item .btn.ghost{background:transparent;color:var(--ct);border-color:var(--cor)}
+.item .ok{font-size:14px;color:var(--cinza);display:flex;gap:6px;align-items:center;cursor:pointer;margin-left:4px}
+.item .ok input{width:18px;height:18px;accent-color:var(--roxo)}
+.item.feito{background:#F7F4FF}
+.item.super{grid-column:1/-1;grid-template-columns:150px 1fr;background:var(--lavanda);border-width:2px;border-left-width:10px}
+.item.super h3{font-size:25px}
+.item.super img{width:150px;height:auto}
+
+/* rodapé */
+.tudo{margin:44px 0 0;background:var(--noite);color:#fff;border-radius:20px;padding:30px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.tudo h2{font-size:28px}
+.tudo p{margin:6px 0 0;color:#D8D0FA;max-width:34em;font-size:16px}
+.info-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;padding-top:44px;padding-bottom:60px}
+details{background:#fff;border:2px solid #E7E1FA;border-radius:12px;padding:14px 18px;margin-bottom:12px}
+summary{font-weight:700;cursor:pointer}
+details p,details ul{margin:10px 0 0;font-size:15.5px;color:#4A4760}
+details ul{padding-left:20px}
+.ajudabox{background:var(--lavanda);border-radius:16px;padding:22px}
+.ajudabox h2{font-size:24px;margin-bottom:8px}
+.ajudabox p{margin:0 0 10px;font-size:15.5px}
+.ajudabox a{font-weight:700;color:var(--roxo)}
+footer{border-top:2px solid #E7E1FA;padding:20px 0 34px;color:var(--cinza);font-size:13.5px}
+
+/* acesso */
+#acesso{position:fixed;inset:0;background:var(--roxo);display:none;place-items:center;z-index:50;padding:22px}
+#acesso.on{display:grid}
+#acesso form{background:#fff;border-radius:20px;padding:30px;max-width:420px;width:100%;text-align:center}
+#acesso h2{font-size:30px;color:var(--noite);margin-bottom:10px}
+#acesso input[type=text]{width:100%;font:inherit;padding:12px 14px;border:2px solid #CFC5F5;border-radius:12px;margin:14px 0 6px}
+#acesso .erro{color:#C62828;min-height:1.4em;font-size:14.5px;margin:0 0 8px}
+#acesso button{font:inherit;font-weight:700;background:var(--roxo);color:#fff;border:0;border-radius:999px;padding:12px 26px;cursor:pointer;font-size:16px}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:36px}
+  .pilha{height:330px;order:-1}
+  .pilha img{width:150px}.pilha .principal{width:185px;left:30%}.pilha .p3{left:62%}.pilha .p4{left:46%}
+  .passos ol{grid-template-columns:1fr}
+  .grade{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .item,.item.super{grid-template-columns:88px 1fr;gap:12px}
+  .item img,.item.super img{width:88px}
+  .pilha{height:270px}.pilha img{width:112px}.pilha .principal{width:140px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- CONFIGURAÇÃO: edite aqui -->
+<script>
+  var NK_CONFIG = {
+    // Deixe vazio para não pedir código. Atenção: o código fica visível no código da página,
+    // então ele só afasta curiosos. Para proteção real, hospede em uma plataforma com login.
+    codigoDeAcesso: "",
+    emailSuporte: "support@myneurokids.com"
+  };
+</script>
+
+<div id="acesso" role="dialog" aria-modal="true" aria-labelledby="acesso-t">
+  <form id="form-acesso">
+    <h2 id="acesso-t">Entrar na minha área</h2>
+    <p>Digite o código de acesso que veio no seu e-mail de compra.</p>
+    <input type="text" id="codigo" autocomplete="off" aria-label="Código de acesso" required>
+    <p class="erro" id="erro" role="alert"></p>
+    <button type="submit">Entrar</button>
+  </form>
+</div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="#">NeuroKids™</a>
+    <a class="ajuda" href="#ajuda">Preciso de ajuda</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Tudo o que você comprou está aqui</h1>
+      <p class="lead">Baixe o material principal e os 10 bônus, imprima as páginas que quiser e comece hoje, com 10 minutos por dia.</p>
+      <div class="btns">
+        <a class="btn" href="pdfs/00-NeuroKids-104-Atividades.pdf" download data-main>Baixar o PDF principal</a>
+        <a class="btn ghost" href="#bonus">Ver os bônus</a>
+      </div>
+      <p class="fatos">104 atividades, 122 páginas, tamanho A4, para crianças de 3 a 14 anos.</p>
+    </div>
+    <div class="pilha" aria-hidden="true">
+      <img class="p1" src="img/bonus-04-espaco.jpg" alt="">
+      <img class="p2" src="img/super-bonus-01-estimular-o-cerebro.jpg" alt="">
+      <img class="p3" src="img/bonus-08-bondade.jpg" alt="">
+      <img class="p4" src="img/bonus-07-natureza.jpg" alt="">
+      <img class="principal" src="img/00-NeuroKids-104-Atividades.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="passos">
+  <div class="wrap">
+    <h2>Como começar</h2>
+    <ol>
+      <li><span class="n">1</span><div><strong>Baixe</strong><span class="t">Comece pelo PDF principal. Os bônus você baixa quando quiser.</span></div></li>
+      <li><span class="n">2</span><div><strong>Imprima</strong><span class="t">Em folha A4, tamanho real. Só as páginas que for usar.</span></div></li>
+      <li><span class="n">3</span><div><strong>Brinque 10 minutos por dia</strong><span class="t">O plano de 30 dias está na página 5 do PDF principal.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="secao" id="principal">
+  <div class="wrap">
+    <h2>Material principal</h2>
+    <p class="sub">Comece por aqui. Os bônus complementam este material.</p>
+    <div class="grade">
+    <article class="item super" style="--cor:#6C4DD8;--on:#ffffff;--ct:#6c4dd8" data-id="00-NeuroKids-104-Atividades">
+      <img src="img/00-NeuroKids-104-Atividades.jpg" width="124" height="175" alt="Capa de NeuroKids™: 104 atividades" loading="lazy">
+      <div class="info">
+        <p class="tag">Material principal</p>
+        <h3>NeuroKids™: 104 atividades</h3>
+        <p class="desc">104 atividades em 8 áreas: atenção, memória, formas, lógica, traços, cores, coordenação e brincadeiras sem tela. Inclui plano de 30 dias, mapa de conquistas, certificado e gabarito.</p>
+        <p class="meta">122 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/00-NeuroKids-104-Atividades.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/00-NeuroKids-104-Atividades.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="00-NeuroKids-104-Atividades"> Já baixei</label>
+        </div>
+      </div>
+    </article></div>
+  </div>
+</section>
+
+<section class="secao" id="bonus">
+  <div class="wrap">
+    <h2>Seus bônus</h2>
+    <p class="sub">São 8 bônus e 2 super bônus, todos em PDF. Marque os que já baixou para acompanhar.</p>
+    <div class="progresso"><span id="prog-texto">0 de 11 baixados</span><div class="barra" aria-hidden="true"><i id="prog-barra"></i></div></div>
+    <div class="grade">
+    <article class="item" style="--cor:#0F9D8F;--on:#2B2A33;--ct:#0c8378" data-id="bonus-01-mindfulness">
+      <img src="img/bonus-01-mindfulness.jpg" width="124" height="175" alt="Capa de Mindfulness diário para crianças" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 1</p>
+        <h3>Mindfulness diário para crianças</h3>
+        <p class="desc">20 práticas curtas de respiração, atenção aos sentidos e calma, para fazer em família.</p>
+        <p class="meta">23 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-01-mindfulness.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-01-mindfulness.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-01-mindfulness"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#1E6FD9;--on:#ffffff;--ct:#1e6fd9" data-id="bonus-02-planificador">
+      <img src="img/bonus-02-planificador.jpg" width="124" height="175" alt="Capa de Planificador diário" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 2</p>
+        <h3>Planificador diário</h3>
+        <p class="desc">18 folhas para organizar a rotina: manhã, tarde e noite, planners, metas e quadro de tarefas.</p>
+        <p class="meta">21 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-02-planificador.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-02-planificador.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-02-planificador"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#F57C00;--on:#2B2A33;--ct:#b05900" data-id="bonus-03-recortar-e-colar">
+      <img src="img/bonus-03-recortar-e-colar.jpg" width="124" height="175" alt="Capa de Livro de recortar e colar" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 3</p>
+        <h3>Livro de recortar e colar</h3>
+        <p class="desc">15 folhas de recortar e colar: montagens, classificações, sequências e padrões.</p>
+        <p class="meta">19 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-03-recortar-e-colar.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-03-recortar-e-colar.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-03-recortar-e-colar"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#3F3FBF;--on:#ffffff;--ct:#3f3fbf" data-id="bonus-04-espaco">
+      <img src="img/bonus-04-espaco.jpg" width="124" height="175" alt="Capa de Atividades do espaço" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 4</p>
+        <h3>Atividades do espaço</h3>
+        <p class="desc">23 atividades com tema espacial: sistema solar, jogos, sudoku e brincadeiras de astronauta.</p>
+        <p class="meta">27 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-04-espaco.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-04-espaco.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-04-espaco"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#D81B7A;--on:#ffffff;--ct:#d81b7a" data-id="bonus-05-padroes">
+      <img src="img/bonus-05-padroes.jpg" width="124" height="175" alt="Capa de Folhas de trabalho de padrões" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 5</p>
+        <h3>Folhas de trabalho de padrões</h3>
+        <p class="desc">23 folhas de padrões de cores, formas, números e letras, do básico ao desafio.</p>
+        <p class="meta">27 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-05-padroes.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-05-padroes.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-05-padroes"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#C99700;--on:#2B2A33;--ct:#906c00" data-id="bonus-06-gratidao">
+      <img src="img/bonus-06-gratidao.jpg" width="124" height="175" alt="Capa de Diário de gratidão" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 6</p>
+        <h3>Diário de gratidão</h3>
+        <p class="desc">22 folhas para escrever, desenhar e agradecer, com cartas, cartões e registro de 30 dias.</p>
+        <p class="meta">25 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-06-gratidao.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-06-gratidao.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-06-gratidao"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#2E9B3E;--on:#2B2A33;--ct:#268234" data-id="bonus-07-natureza">
+      <img src="img/bonus-07-natureza.jpg" width="124" height="175" alt="Capa de Caça ao tesouro na natureza" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 7</p>
+        <h3>Caça ao tesouro na natureza</h3>
+        <p class="desc">20 aventuras ao ar livre: caças ao tesouro, bingo, diário do explorador e mapa.</p>
+        <p class="meta">23 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-07-natureza.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-07-natureza.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-07-natureza"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item" style="--cor:#E0446B;--on:#2B2A33;--ct:#ce3e62" data-id="bonus-08-bondade">
+      <img src="img/bonus-08-bondade.jpg" width="124" height="175" alt="Capa de Livro para colorir da bondade" loading="lazy">
+      <div class="info">
+        <p class="tag">Bônus 8</p>
+        <h3>Livro para colorir da bondade</h3>
+        <p class="desc">20 desenhos para colorir sobre gentileza, amizade e respeito, com cartões e 30 dias de bondade.</p>
+        <p class="meta">23 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/bonus-08-bondade.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/bonus-08-bondade.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="bonus-08-bondade"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+
+    <article class="item super" style="--cor:#6C4DD8;--on:#ffffff;--ct:#6c4dd8" data-id="super-bonus-01-estimular-o-cerebro">
+      <img src="img/super-bonus-01-estimular-o-cerebro.jpg" width="124" height="175" alt="Capa de Atividades para estimular o cérebro" loading="lazy">
+      <div class="info">
+        <p class="tag">Super bônus 1</p>
+        <h3>Atividades para estimular o cérebro</h3>
+        <p class="desc">29 atividades: pausas ativas, caça-palavras, sudoku, labirintos, códigos e desafios de memória e lógica.</p>
+        <p class="meta">33 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/super-bonus-01-estimular-o-cerebro.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/super-bonus-01-estimular-o-cerebro.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="super-bonus-01-estimular-o-cerebro"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    <article class="item super" style="--cor:#D93A3A;--on:#ffffff;--ct:#d03737" data-id="super-bonus-02-manejo-da-raiva">
+      <img src="img/super-bonus-02-manejo-da-raiva.jpg" width="124" height="175" alt="Capa de Manejo da raiva para crianças" loading="lazy">
+      <div class="info">
+        <p class="tag">Super bônus 2</p>
+        <h3>Manejo da raiva para crianças</h3>
+        <p class="desc">26 atividades para reconhecer e acalmar a raiva, com guia para pais e educadores.</p>
+        <p class="meta">30 páginas, PDF em A4</p>
+        <div class="acoes">
+          <a class="btn" href="pdfs/super-bonus-02-manejo-da-raiva.pdf" download>Baixar PDF</a>
+          <a class="btn ghost" href="pdfs/super-bonus-02-manejo-da-raiva.pdf" target="_blank" rel="noopener">Abrir no navegador</a>
+          <label class="ok"><input type="checkbox" data-done="super-bonus-02-manejo-da-raiva"> Já baixei</label>
+        </div>
+      </div>
+    </article>
+    </div>
+
+    <div class="tudo">
+      <div>
+        <h2>Prefere baixar tudo de uma vez?</h2>
+        <p>Um arquivo ZIP com os 11 PDFs. Descompacte no computador ou no celular.</p>
+      </div>
+      <a class="btn" href="pdfs/NeuroKids_Tudo.zip" download>Baixar tudo (ZIP)</a>
+    </div>
+  </div>
+</section>
+
+<section id="ajuda">
+  <div class="wrap info-grid">
+    <div>
+      <h2 style="font-size:28px;margin-bottom:16px">Dicas e perguntas</h2>
+      <details>
+        <summary>Como imprimir do jeito certo?</summary>
+        <ul>
+          <li>Use folha A4 e escolha "tamanho real" ou "100%" na impressão.</li>
+          <li>Atividades com o selo "melhor em cores" ficam mais bonitas coloridas, mas funcionam em preto e branco.</li>
+          <li>Jogos de recortar duram mais em papel mais firme.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Posso imprimir várias vezes?</summary>
+        <p>Sim. Pode imprimir quantas cópias precisar para uso da sua família ou da sua sala de aula. Não é permitido revender nem compartilhar os arquivos.</p>
+      </details>
+      <details>
+        <summary>Meu arquivo não abre ou não baixa</summary>
+        <p>Tente baixar pelo botão "Baixar PDF" e abrir em um leitor de PDF atualizado. No celular, se o arquivo abrir no navegador, use a opção de salvar ou compartilhar. Se continuar com problema, escreva para o suporte.</p>
+      </details>
+      <details>
+        <summary>Por onde começo com uma criança pequena?</summary>
+        <p>Comece pelas atividades de 3 a 5 anos, com a ajuda de um adulto. Faça poucas por dia e pare antes que a criança se canse.</p>
+      </details>
+      <details>
+        <summary>Este material substitui acompanhamento profissional?</summary>
+        <p>Não. É um material educativo e recreativo. Em caso de dúvidas sobre atenção, aprendizagem ou desenvolvimento, procure um profissional de saúde ou educação.</p>
+      </details>
+    </div>
+    <aside class="ajudabox">
+      <h2>Precisa de ajuda?</h2>
+      <p>Escreva para o nosso suporte e conte qual é o problema. Se puder, diga o nome do arquivo.</p>
+      <p><a id="mail" href="mailto:support@myneurokids.com">support@myneurokids.com</a></p>
+      <p>Você também tem a garantia de 7 dias descrita na página de compra.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">NeuroKids™. Material educativo e recreativo. Reprodução permitida apenas para uso familiar ou em sala de aula do comprador.</div>
+</footer>
+
+<script>
+(function () {
+  var ids = ["00-NeuroKids-104-Atividades", "bonus-01-mindfulness", "bonus-02-planificador", "bonus-03-recortar-e-colar", "bonus-04-espaco", "bonus-05-padroes", "bonus-06-gratidao", "bonus-07-natureza", "bonus-08-bondade", "super-bonus-01-estimular-o-cerebro", "super-bonus-02-manejo-da-raiva"];
+  var KEY = "nk_baixados_v1";
+  function lerEstado() {
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; }
+  }
+  function salvarEstado(s) {
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  var estado = lerEstado();
+
+  function atualizar() {
+    var feitos = 0;
+    ids.forEach(function (id) {
+      var cb = document.querySelector('input[data-done="' + id + '"]');
+      var card = document.querySelector('[data-id="' + id + '"]');
+      if (cb) { cb.checked = !!estado[id]; }
+      if (card) { card.classList.toggle("feito", !!estado[id]); }
+      if (estado[id]) feitos++;
+    });
+    document.getElementById("prog-texto").textContent = feitos + " de " + ids.length + " baixados";
+    document.getElementById("prog-barra").style.width = Math.round(feitos / ids.length * 100) + "%";
+  }
+
+  document.addEventListener("change", function (e) {
+    var id = e.target && e.target.getAttribute && e.target.getAttribute("data-done");
+    if (!id) return;
+    estado[id] = e.target.checked;
+    salvarEstado(estado);
+    atualizar();
+  });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[download]");
+    if (!a) return;
+    var card = a.closest("[data-id]");
+    var id = card ? card.getAttribute("data-id") : (a.hasAttribute("data-main") ? ids[0] : null);
+    if (id) { estado[id] = true; salvarEstado(estado); atualizar(); }
+  });
+  atualizar();
+
+  var mail = document.getElementById("mail");
+  if (mail && NK_CONFIG.emailSuporte) {
+    mail.href = "mailto:" + NK_CONFIG.emailSuporte;
+    mail.textContent = NK_CONFIG.emailSuporte;
+  }
+
+  // código de acesso (opcional)
+  var cod = NK_CONFIG.codigoDeAcesso;
+  var gate = document.getElementById("acesso");
+  var OKKEY = "nk_acesso_ok";
+  function liberado() { try { return localStorage.getItem(OKKEY) === cod; } catch (e) { return false; } }
+  if (cod) {
+    if (!liberado()) {
+      gate.classList.add("on");
+      document.getElementById("codigo").focus();
+    }
+    document.getElementById("form-acesso").addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var v = document.getElementById("codigo").value.trim();
+      if (v === cod) {
+        try { localStorage.setItem(OKKEY, cod); } catch (e) {}
+        gate.classList.remove("on");
+      } else {
+        document.getElementById("erro").textContent = "Código incorreto. Confira o e-mail de compra e tente de novo.";
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
